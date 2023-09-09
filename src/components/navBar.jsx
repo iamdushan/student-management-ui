@@ -6,9 +6,9 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
   Container,
 } from "reactstrap";
+import BarItem from "./core/barItem";
 
 class NavBar extends Component {
   state = {
@@ -32,9 +32,22 @@ class NavBar extends Component {
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
                 <NavItem>
-                  <NavLink href="https://github.com/iamdushan95">
-                    Github
-                  </NavLink>
+                  <BarItem
+                    url="http://localhost:3000/teacher-form"
+                    linkName="Teacher Form"
+                  />
+                  <BarItem
+                    url="http://localhost:3000/teacher-allocate-to-subject"
+                    linkName="Allocate Subject"
+                  />
+                  <BarItem
+                    url="http://localhost:3000/teacher-allocate-to-class"
+                    linkName="Allocate Class Room"
+                  />
+                  <BarItem
+                    url="http://localhost:3000/student-report"
+                    linkName="Student Report"
+                  />
                 </NavItem>
               </Nav>
             </Collapse>
