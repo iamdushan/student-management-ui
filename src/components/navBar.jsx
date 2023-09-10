@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import {
   Collapse,
   Navbar,
@@ -6,56 +6,44 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  Container,
 } from "reactstrap";
 import BarItem from "./core/barItem";
 
-class NavBar extends Component {
-  state = {
-    isOpen: false,
-  };
+function NavBar(args) {
+  const [isOpen, setIsOpen] = useState(false);
 
-  toggle = () => {
-    this.setState({
-      isOpen: !this.state.isOpen,
-    });
-  };
-  render() {
-    return (
-      <div>
-        <Navbar color="dark" dark expand="sm" className="mb-5">
-          <Container>
-            <NavbarBrand href="/" className="mr-6">
-              Student Management System
-            </NavbarBrand>
-            <NavbarToggler onClick={this.toggle} />
-            <Collapse isOpen={this.state.isOpen} navbar>
-              <Nav className="ml-auto" navbar>
-                <NavItem>
-                  <BarItem
-                    url="http://localhost:3000/teacher-form"
-                    linkName="Teacher Form"
-                  />
-                  <BarItem
-                    url="http://localhost:3000/teacher-allocate-to-subject"
-                    linkName="Allocate Subject"
-                  />
-                  <BarItem
-                    url="http://localhost:3000/teacher-allocate-to-class"
-                    linkName="Allocate Class Room"
-                  />
-                  <BarItem
-                    url="http://localhost:3000/student-report"
-                    linkName="Student Report"
-                  />
-                </NavItem>
-              </Nav>
-            </Collapse>
-          </Container>
-        </Navbar>
-      </div>
-    );
-  }
+  const toggle = () => setIsOpen(!isOpen);
+
+  return (
+    <div>
+      <Navbar {...args}>
+        <NavbarBrand href="/">Student Management System</NavbarBrand>
+        <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className="ml-auto" navbar>
+            <NavItem>
+              <BarItem
+                url="http://localhost:3000/teachers"
+                linkName="Teacher Form"
+              />
+              <BarItem
+                url="http://localhost:3000/allocate-to-subject"
+                linkName="Allocate Subject"
+              />
+              <BarItem
+                url="http://localhost:3000/allocate-to-class"
+                linkName="Allocate Class Room"
+              />
+              <BarItem
+                url="http://localhost:3000/student-report"
+                linkName="Student Report"
+              />
+            </NavItem>
+          </Nav>
+        </Collapse>
+      </Navbar>
+    </div>
+  );
 }
 
 export default NavBar;
