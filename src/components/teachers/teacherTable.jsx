@@ -10,9 +10,9 @@ function TeacherTable() {
     getTeachers();
   }, []);
 
-  const getTeachers = () => {
+  const getTeachers = async () => {
     const url = "https://localhost:44382/api/Teachers/GetAllTeachers";
-    axios
+    await axios
       .get(url)
       .then((res) => {
         const result = res.data;

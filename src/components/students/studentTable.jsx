@@ -9,9 +9,9 @@ function StudentTable() {
     getStudents();
   }, []);
 
-  const getStudents = () => {
+  const getStudents = async () => {
     const url = "https://localhost:44382/api/Students/GetAllStudents";
-    axios
+    await axios
       .get(url)
       .then((res) => {
         const result = res.data;
@@ -32,32 +32,6 @@ function StudentTable() {
   ];
 
   return (
-    // <div className="student">
-    //   <div className="container">
-    //     <table className="table mt-3">
-    //       <thead>
-    //         <tr>
-    //           <th>First Name</th>
-    //           <th>Last Name</th>
-    //           <th>Contact Person</th>
-    //           <th>Contact No</th>
-    //         </tr>
-    //       </thead>
-    //       <tbody>
-    //         {students &&
-    //           students.map((student, index) => (
-    //             <tr key={index}>
-    //               <td>{student.firstName}</td>
-    //               <td>{student.lastName}</td>
-    //               <td>{student.contactPerson}</td>
-    //               <td>{student.contactNo}</td>
-    //             </tr>
-    //           ))}
-    //       </tbody>
-    //     </table>
-    //   </div>
-    // </div>
-
     <div className="student">
       <div className="container">
         <TableField data={students} column={column} />

@@ -7,14 +7,25 @@ import { Validators } from "../../Utilities/validator";
 class AddNewSubject extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      subjectId: "",
+      subject: "",
+    };
   }
+
+  handleChange = (key) => (value) => {
+    this.setState({ [key]: value });
+  };
+
   render() {
+    const { subjectId, subject } = this.state;
+
     return (
       <form>
         <div className="row">
           <div className="col">
             <InputField
+              value={subjectId}
               type="number"
               label="Subject Id"
               placeholder="Type here..."
@@ -24,10 +35,12 @@ class AddNewSubject extends Component {
                   message: "This field is required",
                 },
               ]}
+              onChange={this.handleChange("subjectId")}
             />
           </div>
           <div className="col">
             <InputField
+              value={subject}
               type="text"
               label="Subject Name"
               placeholder="Type here..."
@@ -37,6 +50,7 @@ class AddNewSubject extends Component {
                   message: "This field is required",
                 },
               ]}
+              onChange={this.handleChange("subject")}
             />
           </div>
         </div>

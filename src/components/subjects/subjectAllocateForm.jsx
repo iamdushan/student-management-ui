@@ -45,15 +45,21 @@ function SubjectAllocateForm() {
         console.log(err);
       });
   };
+
+  function handleDropDown() {}
+
+  function handleAllocate() {}
+
   return (
     <form>
       <div className="row">
         <div className="col">
           <DropDownField
             data={teachers}
-            value=""
+            value={teachers}
             placeholder="Select a Teacher"
             label="Teacher"
+            onChange={() => handleDropDown()}
           />
         </div>
         <div className="col">
@@ -62,12 +68,13 @@ function SubjectAllocateForm() {
             value=""
             placeholder="Select a Subject"
             label="Subject"
+            onChange={() => handleDropDown()}
           />
         </div>
       </div>
       <div className="row">
         <div className="col">
-          <ButtonField value="Allocate" />
+          <ButtonField value="Allocate" onClick={handleAllocate()} />
         </div>
       </div>
     </form>

@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { Component } from "react";
 import ButtonField from "../core/buttonField";
 import InputField from "../core/inputField";
@@ -205,7 +204,7 @@ class StudentForm extends Component {
     };
   }
 
-  handleSubmit = (params) => {};
+  handleSave = (params) => {};
 
   handleChange = (key) => (value) => {
     //console.log({ [key]: value });
@@ -528,7 +527,7 @@ class StudentForm extends Component {
         </div>
         <div className="row mt-2">
           <div className="col">
-            <ButtonField value="Save" />
+            <ButtonField value="Save" onClick={() => this.handleSave()} />
             <ButtonField value="Delete" styleClass="btn-danger" />
             <ButtonField value="Reset" styleClass="btn-warning" />
           </div>

@@ -10,10 +10,10 @@ function ClassRoomAllocateTable() {
     getClassRooms();
   }, []);
 
-  const getClassRooms = () => {
+  const getClassRooms = async () => {
     const url =
       "https://localhost:44382/api/Teachers/GetAllocatedClassRoomToTeacher";
-    axios
+    await axios
       .get(url)
       .then((res) => {
         const result = res.data;

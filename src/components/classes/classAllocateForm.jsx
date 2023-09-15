@@ -45,6 +45,10 @@ function ClassAllocateForm() {
         console.log(err);
       });
   };
+
+  function handleDropDown() {}
+
+  function handleAllocate() {}
   return (
     <form>
       <div className="row">
@@ -54,6 +58,7 @@ function ClassAllocateForm() {
             value=""
             placeholder="Select a Teacher"
             label="Teacher"
+            onChange={() => handleDropDown()}
           />
         </div>
         <div className="col">
@@ -62,12 +67,13 @@ function ClassAllocateForm() {
             value=""
             placeholder="Select a Class Room"
             label="Class Room"
+            onChange={() => handleDropDown()}
           />
         </div>
       </div>
       <div className="row mt-2">
         <div className="col">
-          <ButtonField value="Allocate" />
+          <ButtonField value="Allocate" onClick={handleAllocate()} />
         </div>
       </div>
     </form>

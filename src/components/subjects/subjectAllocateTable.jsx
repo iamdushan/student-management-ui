@@ -9,10 +9,10 @@ function SubjectAllocateTable() {
     getSubjects();
   }, []);
 
-  const getSubjects = () => {
+  const getSubjects = async () => {
     const url =
       "https://localhost:44382/api/Teachers/GetAllocatedSubjectToTeachers";
-    axios
+    await axios
       .get(url)
       .then((res) => {
         const result = res.data;

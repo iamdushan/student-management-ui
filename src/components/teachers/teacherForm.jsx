@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import InputField from "../core/inputField";
 import ButtonField from "../core/buttonField";
 import { Validators } from "../../Utilities/validator";
@@ -34,6 +34,9 @@ class TeacherForm extends Component {
     //console.log(this.setState(obj));
     //this.setState({ obj });
   };
+
+  handleDelete = () => {};
+  handleReset = () => {};
 
   render() {
     const { firstName, lastName, contactNo, email } = this.state;
@@ -114,8 +117,16 @@ class TeacherForm extends Component {
         <div className="row mt-2">
           <div className="col">
             <ButtonField value="Save" onClick={this.handleSave} />
-            <ButtonField value="Delete" styleClass="btn-danger" />
-            <ButtonField value="Reset" styleClass="btn-warning" />
+            <ButtonField
+              value="Delete"
+              onClick={this.handleDelete()}
+              styleClass="btn-danger"
+            />
+            <ButtonField
+              value="Reset"
+              onClick={this.handleReset()}
+              styleClass="btn-warning"
+            />
           </div>
         </div>
       </form>
